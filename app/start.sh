@@ -1,0 +1,1 @@
+GUNICORN_CMD_ARGS="--bind=127.0.0.1 --workers=3 --log-level=debug" gunicorn -k tornado server:app
