@@ -1,9 +1,9 @@
 #!/bin/bash
 
-GUNICORN_CMD_ARGS="--bind=127.0.0.1:9999 --workers=3 --log-level=warning" gunicorn -k tornado server:app &
+GUNICORN_CMD_ARGS="--bind=127.0.0.1:9999 --workers=3 --log-level=warning graceful_timeout=30" gunicorn -k tornado server:app &
 BACKGROUND_SERVER_PID=$!
 
-GUNICORN_CMD_ARGS="--bind=127.0.0.1:8000 --workers=3 --log-level=debug" gunicorn -k tornado server:app &
+GUNICORN_CMD_ARGS="--bind=127.0.0.1:8000 --workers=3 --log-level=debug graceful_timeout=30" gunicorn -k tornado server:app &
 FOREGROUND_SERVER_PID=$!
 
 sleep 5s
@@ -14,7 +14,7 @@ sleep 5s
 # This should return normally after it is killed.
 /usr/bin/curl -s http://127.0.0.1:8000/remote/10 > /dev/null &
 
-sleep 5s
+sleep 3s
 
 # The foreground parent process should be killed; any request to this url should be ignored and not logged.
 kill $FOREGROUND_SERVER_PID
