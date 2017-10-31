@@ -1,0 +1,19 @@
+{
+  "name": "timeoutplayground",
+  "description": "Try timing things out.",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+    "papertrail", "newrelic"
+  ],
+  "keywords": ["python", "django" ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
