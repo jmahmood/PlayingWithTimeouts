@@ -86,7 +86,5 @@ def generate_application():
 app = generate_application()
 
 if __name__ == "__main__":
-    tornado.options.define('PORT', default=2500, help='port we run on', type='int')
-    tornado.options.parse_command_line()
-    generate_application().listen(int(tornado.options.options.PORT))
+    generate_application().listen(int(os.environ.get('PORT')))
     tornado.ioloop.IOLoop.current().start()
