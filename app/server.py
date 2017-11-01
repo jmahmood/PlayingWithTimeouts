@@ -21,10 +21,10 @@ class BaseRequest(RequestHandler):
         pass
 
     def get(self, *args, **kwargs):
-        # print('[{0}] Receive Request ({1})'.format(datetime.datetime.now(), self.__class__.__name__))
+        print('[{0}] Receive Request ({1})'.format(datetime.datetime.now(), self.__class__.__name__))
         self.wait_period()
         self.write('Request Complete')
-        # cprint('[{0}] Serve Request ({1})'.format(datetime.datetime.now(), self.__class__.__name__))
+        print('[{0}] Serve Request ({1})'.format(datetime.datetime.now(), self.__class__.__name__))
 
 
 class ThirtySecondSecondRequest(BaseRequest):
