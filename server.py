@@ -85,10 +85,10 @@ def generate_application():
     ], DEBUG=True)
 
 
-app = generate_application()
+application = generate_application()
 
 if __name__ == "__main__":
     enable_pretty_logging()
     generate_application().listen(int(os.environ.get('PORT')))
     print("Listening on {0}".format(os.environ.get('PORT')))
-    tornado.ioloop.IOLoop.current().start()
+    tornado.ioloop.IOLoop.instance().start()
