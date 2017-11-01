@@ -1,1 +1,1 @@
-web: GUNICORN_CMD_ARGS="--bind=127.0.0.1:8000 --workers=3 --log-level=debug --graceful-timeout 20" env PYTHONPATH=$PYTHONPATH:$PWD/app newrelic-admin run-program gunicorn -k tornado server:app --log-file -
+web: GUNICORN_CMD_ARGS="--log-level=debug --graceful-timeout 20" env PYTHONPATH=$PYTHONPATH:$PWD/app newrelic-admin run-program gunicorn -k tornado server:app --log-file -
