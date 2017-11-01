@@ -10,6 +10,8 @@ import tornado.wsgi
 import datetime
 import requests
 import os
+from tornado.log import enable_pretty_logging
+
 
 REMOTESERVER = '127.0.0.1:9999'
 
@@ -86,6 +88,7 @@ def generate_application():
 app = generate_application()
 
 if __name__ == "__main__":
+    enable_pretty_logging()
     generate_application().listen(int(os.environ.get('PORT')))
     print("Listening on {0}".format(os.environ.get('PORT')))
     tornado.ioloop.IOLoop.current().start()
