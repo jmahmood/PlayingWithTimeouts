@@ -1,1 +1,1 @@
-web: gunicorn -k tornado -b 0.0.0.0:$PORT server  --access-logfile - --error-logfile -
+web: gunicorn --graceful-timeout 20 --log-level=debug -k tornado -b 0.0.0.0:$PORT server  --access-logfile - --error-logfile -
