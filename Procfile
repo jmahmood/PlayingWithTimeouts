@@ -1,1 +1,1 @@
-web: gunicorn -k tornado -b 0.0.0.0:$PORT server  --access-log -
+web: gunicorn -k tornado -b 0.0.0.0:$PORT server  --access-logfile - --error-logfile -
