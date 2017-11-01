@@ -87,4 +87,5 @@ app = generate_application()
 
 if __name__ == "__main__":
     generate_application().listen(int(os.environ.get('PORT')))
+    print("Listening on {0}".format(os.environ.get('PORT')))
     tornado.ioloop.IOLoop.current().start()
