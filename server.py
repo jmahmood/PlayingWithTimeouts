@@ -73,6 +73,7 @@ def generate_application():
         (r"/remote/1$", RemoteOneSecondSecondRequest),  # Contacts a remote server and returns about 1 second later.
         (r"/remote/10$", RemoteTenSecondSecondRequest),  # Contacts a remote server and returns about 10 seconds later.
         (r"/remote/20$", RemoteTwentySecondSecondRequest),  # Contacts a remote server and returns about 20 seconds later.
+        (r"/$", OneSecondSecondRequest),  # Waits 1 second and then returns some text.
         (r"/1$", OneSecondSecondRequest),  # Waits 1 second and then returns some text.
         (r"/10$", TenSecondSecondRequest),  # Waits 10 seconds and then returns some text.
         (r"/20$", TwentySecondSecondRequest),  # Waits 20 seconds and then returns some text.
