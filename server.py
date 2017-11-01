@@ -13,7 +13,8 @@ import os
 from tornado.log import enable_pretty_logging
 
 
-REMOTESERVER = '127.0.0.1:9999'
+REMOTESERVER = 'csa-test-timeout-remote.herokuapp.com'
+
 
 class BaseRequest(RequestHandler):
     def data_received(self, chunk):
@@ -59,15 +60,15 @@ class BaseRemoteServer(RequestHandler):
 
 
 class RemoteTwentySecondSecondRequest(BaseRemoteServer):
-    url = 'http://{0}/20'.format(REMOTESERVER)
+    url = 'https://{0}/20'.format(REMOTESERVER)
 
 
 class RemoteTenSecondSecondRequest(BaseRemoteServer):
-    url = 'http://{0}/10'.format(REMOTESERVER)
+    url = 'https://{0}/10'.format(REMOTESERVER)
 
 
 class RemoteOneSecondSecondRequest(BaseRemoteServer):
-    url = 'http://{0}/1'.format(REMOTESERVER)
+    url = 'https://{0}/1'.format(REMOTESERVER)
 
 
 def generate_application():
